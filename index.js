@@ -99,7 +99,7 @@ function getDetails() {
     var movieDetails = document.getElementById("movieDetails")
     console.log(imdbId)
 
-    axios.get('http://www.omdbapi.com/?apikey=5483a5bc&i=' + imdbId)
+    axios.get('https://www.omdbapi.com/?apikey=5483a5bc&i=' + imdbId)
         .then((response) => {
             console.log(response);
             let movie = response.data;

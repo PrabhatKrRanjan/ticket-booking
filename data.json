@@ -505,5 +505,6 @@
     { "id": 37, "name": "Western" }
   ],
   "theatre": ["Fun Cinema","Cine Bliss","Cine Polish","Fun Cinemas"],
-  "location": ["Pune","Patna","Bangalore","Mumbai"]
+  "location": ["Pune","Patna","Bangalore","Mumbai"],
+  "seat" : []
 }

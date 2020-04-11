@@ -62,7 +62,7 @@ function createCard(movies) {
     let output = ''
     for (let i = 0; i < movies.length; i++) {
         output += `
-            <div class="card bg bg-dark col-3 p-4 mb-3">
+            <div class="card bg bg-dark col-sm-12 col-md-6 col-lg-3 p-4 mb-3">
                 <div class="text-center text-white">
                 <img class="cardImage" src="${movies[i].Poster}">
                 <h5>${movies[i].Title}</h5>
@@ -107,7 +107,9 @@ function getDetails() {
             let output = `
             <div class="row pt-5">
                 <div class="col-md-4">
-                    <img src="${movie.Poster}" class="detailImg">
+                    <div class="d-flex justify-content-center">
+                        <img src="${movie.Poster}">
+                    </div>
                     <div class="text-success mt-4">
                         <div> <span class="text-danger">Runtime - </span> ${movie.Runtime}</div>
                         <div> <span class="text-danger">Gener - </span> ${movie.Genre}</div>

@@ -1,0 +1,88 @@
+*{
+    margin: 0; padding:0;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+header {
+    width: 100%;
+    background: #0f8a9d;
+    background: linear-gradient(57deg, #00C6A7 , #1E4D92 ); 
+}
+
+nav{
+    display: flex;
+    color: white;
+    
+}
+
+.logo{
+    width: 70%;
+    height: 100px;
+}
+
+.logo h1{
+    line-height: 100px;
+    padding-left: 50px;
+}
+.logo h1 a {
+    text-decoration: none;
+    color: white;
+}
+
+.logo h1 a:hover {
+    color: teal;
+}
+
+.menu{
+    width: 30%; 
+    height: 100px;
+}
+
+.menu ul{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:  center;
+}
+
+.menu ul li{
+    list-style: none;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.ml-4 {
+    padding: 8px 20px;
+    background: transparent;
+    color: white;
+    border: 1px solid black ;
+    border-radius: 5px ;
+}
+
+.ml-4:hover {
+    background: linear-gradient(57deg, #1E4D92, #00C6A7 );
+}
+
+input {
+    padding: 8px;
+    background:rgb(219, 219, 219);
+    color: black;
+    border: 1px solid black ;
+    border-radius: 5px ;
+}
+
+.card {
+    height: 550px;
+}
+
+.cardImage {
+    height: 400px;
+    width: 300px;
+}

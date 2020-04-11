@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunZone</title>
+</head>
+
+<body class="bg bg-dark">
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1><a href="index.html">FunZone</a></h1>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <input id="movieName" type="text" placeholder="Enter Movie Name">
+                        <button onclick="searchMovie()" class="ml-4">Search</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-fluid">
+        <div class="container">
+            <div id="movieDetails"></div>
+            <h1 class="text-center text-success pt-5">Select Location and Theatre to book seat</h1>
+            <div class="d-flex justify-content-center p-3">
+                <div class="text-white px-3">
+                    <label for="Location">Location</label>
+                    <select id="location" class="custom-select">
+                        <option value="Pune">Pune</option>
+                        <option value="Patna">Patna</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Mumbai">Mumbai</option>
+                    </select>
+                </div>
+                <div class="text-white px-3">
+                    <label for="Theatre">Theatre</label>
+                    <select id="theatre" class="custom-select">
+                        <option value="Fun Cinema">Fun Cinema</option>
+                        <option value="Cine Bliss">Cine Bliss</option>
+                        <option value="Cine Polish">Cine Polish</option>
+                        <option value="Fun Cinemas">Fun Cinemas</option>
+                    </select>
+                </div>
+                <div class="text-white px-3">
+                    <label for="show">Show Time</label>
+                    <select id="showTime" class="custom-select">
+                        <option value="9 AM - 11 AM">9 AM - 11 Am</option>
+                        <option value="11.30 AM - 1 PM">11.30 AM - 1 PM</option>
+                        <option value="2 PM - 4 PM">2 PM - 4 PM</option>
+                        <option value="4.30 PM - 7 PM">4.30 PM - 7 PM</option>
+                        <option value="7.30 PM - 9.30 PM">7.30 PM - 9.30 PM</option>
+                    </select>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center p-3">
+                <a href="show.html" class="btn btn-primary btn-block col-3 p-2">Book Show</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small pt-4">
+        <div class="container text-white text-center text-md-left">
+            <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <h5 class="text-uppercase font-weight-bold">Footer text 1</h5>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil
+                        repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam
+                        recusandae harum esse fugiat. Itaque, culpa?
+                    </p>
+                </div>
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <div class="col-md-6 mb-md-0 mb-3">
+                    <h5 class="text-uppercase font-weight-bold">Footer text 2</h5>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi
+                        earum commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam,
+                        aspernatur id excepturi hic.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center text-white py-3">© 2020 Copyright:
+            <a href="https://mdbootstrap.com/"> prabhatkrranjan95@gmail.com</a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script>
+        getDetails()
+    </script>
+</body>
+
+</html>

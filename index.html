@@ -21,7 +21,7 @@
             <div class="menu">
                 <ul>
                     <li>
-                        <input id="movieName" type="text" placeholder="Enter Movie Name">
+                        <input id="movieName" type="text" onkeyup="searchMovie()" placeholder="Enter Movie Name">
                         <button onclick="searchMovie()" class="ml-4">Search</button>
                     </li>
                 </ul>
@@ -31,8 +31,8 @@
 
     <main class="container-fluid bg bg-dark">
         <div class="container">
-            <h1 class="text-center text-white pt-5 bb-3">Recent Movies</h1>
-            <div class="d-flex justify-content-center text-white">
+            <h1 class="text-center text-white mt-5 ">Recent Movies</h1>
+            <div class="d-flex justify-content-center text-white mb-5 p-1">
                 <div class="">
                     <label>Filter By Genre</label>
                     <select id="addGenere" class="custom-select"></select>

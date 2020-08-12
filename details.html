@@ -11,7 +11,7 @@
     <title>FunZone</title>
 </head>
 
-<body class="bg bg-dark">
+<body class="bg bg-linear">
 
     <header>
         <nav>
@@ -21,7 +21,7 @@
             <div class="menu">
                 <ul>
                     <li>
-                        <input id="movieName" type="text" placeholder="Enter Movie Name">
+                        <input id="movieName" type="text" onkeyup="searchMovie()" placeholder="Enter Movie Name">
                         <button onclick="searchMovie()" class="ml-4">Search</button>
                     </li>
                 </ul>

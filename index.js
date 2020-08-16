@@ -112,12 +112,24 @@ function movieSelected(id) {
 function getDetails() {
     var movieId = sessionStorage.getItem("imdbId");
     var movieDetails = document.getElementById("movieDetails")
-    let url = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=7ac617c2c72b5659bf38cc09855556f9&language=en-US"
+    let url = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=7ac617c2c72b5659bf38cc09855556f9&language=en-US";
+
+    let videoUrl ="https://api.themoviedb.org/3/movie/"+ movieId +"/videos?api_key=7ac617c2c72b5659bf38cc09855556f9&language=en-US";
+    let videoKey = ''
+    fetch(videoUrl)
+        .then(res => res.json())
+        .then((response) => {
+            videoKey = response.results[0]["key"]
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+
     fetch(url)
         .then(res => res.json())
         .then((response) => {
             let movie = response;
-            // console.log("movies", movie);
+            console.log("movies", movie);
             let poster_path;
 
             if (movie.poster_path == null) {
@@ -170,9 +182,17 @@ function getDetails() {
 
             <div class="">
             <div class="text-white">
-                <h3 class="pt-4">Plot</h3>
-                <div>${movie.overview}<div>
+                <h3 class="pt-4 text-center">Plot</h3>
+                <div class="">${movie.overview}<div>
             </div>
+
+            <div class="text-white">
+                <h3 class="pt-5 text-center">Trailers</h3>
+                <div>
+                <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/${videoKey}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div>
+            </div>
+
             <hr>
 
             <div class="row justify-content-center text-white">

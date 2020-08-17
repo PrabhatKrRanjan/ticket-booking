@@ -9,7 +9,7 @@ fetch("https://api.themoviedb.org/3/trending/movie/day?api_key=7ac617c2c72b5659b
         createCard(movies)
     })
     .catch((error) => {
-        console.log(error)
+        // console.log(error)
     })
 
 // Movie Search Function
@@ -29,15 +29,15 @@ function searchMovie() {
         .catch((err) => console.log(err));
 }
 
-let debouncing = function(func, delay){
-    let debouce ;
-    return function(){
+let debouncing = function (func, delay) {
+    let debouce;
+    return function () {
         clearTimeout(debouce)
-        debouce = setTimeout(()=>func.apply(this),delay)
+        debouce = setTimeout(() => func.apply(this), delay)
     }
 }
 
-window.addEventListener("input", debouncing(searchMovie,500))
+window.addEventListener("input", debouncing(searchMovie, 500))
 
 //Append Genre As Option
 
@@ -62,15 +62,18 @@ function appendGenre(genres) {
 
 document.getElementById("addGenere").addEventListener("change", function () {
     var genereValue = document.getElementById('addGenere').value;
+    if(genereValue == null){
+        genereValue =12;
+    }
     let url = "https://api.themoviedb.org/3/discover/movie?api_key=7ac617c2c72b5659bf38cc09855556f9&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" + genereValue
 
     fetch(url)
         .then(res => res.json())
         .then(data => {
             createCard(data.results)
-            // console.log(data.results)
+            console.log(data.results)
         })
-        .catch(err => console.log(err))
+    // .catch(err => console.log(err))
 })
 
 // Card Display Function
@@ -114,7 +117,7 @@ function getDetails() {
     var movieDetails = document.getElementById("movieDetails")
     let url = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=7ac617c2c72b5659bf38cc09855556f9&language=en-US";
 
-    let videoUrl ="https://api.themoviedb.org/3/movie/"+ movieId +"/videos?api_key=7ac617c2c72b5659bf38cc09855556f9&language=en-US";
+    let videoUrl = "https://api.themoviedb.org/3/movie/" + movieId + "/videos?api_key=7ac617c2c72b5659bf38cc09855556f9&language=en-US";
     let videoKey = ''
     fetch(videoUrl)
         .then(res => res.json())
@@ -208,16 +211,50 @@ function getDetails() {
         });
 }
 
-// function displaySeat() {
-//     fetch("data.json")
-//         .then((res) => {
-//             return res.json()
-//         })
-//         .then((data) => {
-//             seats = data.seats
-//         })
-//         .catch((error) => {
-//             console.log(error)
-//         })
-//     console.log(seats)
+
+var seat;
+function displaySeat() {
+    fetch("data.json")
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) => {
+            seat = data.seats
+            displaySeat(seat)
+            // occupieSeat(seat)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+
+    function displaySeat(seat) {
+        let seatsPlot = document.getElementById("showSeats");
+        let plotSeatId = "";
+        seat.forEach(e => {
+            plotSeatId += `
+                    <div onclick='occupieSeat(this.id)' id='${e.seatId}' class='card seat-box col-sm-2 col-md-2 col-lg-1 py-3 m-2 ${e.status == false ? 'bg bg-success' : 'bg bg-danger'}'> ${e.seatId}</div>
+                    `
+        });
+        seatsPlot.innerHTML = plotSeatId
+    }
+}
+
+// function updateSeatStatus(id){
+//     for (let i = 0; i < seat.length; i++) {
+//         // console.log(seat[i].seatId == id)
+//         if (seat[i].seatId == id) {
+//             seat[i].status = !seat[i].status
+//         }
+//     }
 // }
+
+var arr = [];
+
+function occupieSeat(id) {
+    console.log("id",id)
+    document.getElementById(id).setAttribute('class', `card seat-box col-sm-2 col-md-2 col-lg-1 py-3 m-2 bg bg-danger`)
+    arr.push(id)
+    updateSeatStatus(id)
+    // displaySeat(seat)
+    console.log(arr)
+}

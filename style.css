@@ -105,5 +105,10 @@ main {
         width: 370px;
         height: 220px;
     }
+
+    .seat-box {
+        width: 66px;
+        height: 50px;
+    }
 }
 
